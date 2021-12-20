@@ -1,3 +1,10 @@
+<!--
+ * @Description: 菜单
+ * @Autor: juest
+ * @Date: 2021-12-20 10:37:54
+ * @LastEditors: juest
+ * @LastEditTime: 2021-12-20 13:45:15
+-->
 <template>
   <el-aside width="250px">
     <logo />
@@ -11,7 +18,7 @@
       @close="handleClose"
     >
       <el-menu-item index="4">
-        <el-icon><setting /></el-icon>
+        <!-- <el-icon><setting /></el-icon> -->
         <template #title>Navigator Four</template>
       </el-menu-item>
     </el-menu>
@@ -25,7 +32,6 @@ import router from "@/router";
   components: {
     logo,
   },
-  component: {},
 })
 export default class Aside extends Vue {
   firstName!: string;
@@ -39,7 +45,7 @@ export default class Aside extends Vue {
   }
   // 生命周期钩子声明  保留名称
   created(): void {
-    console.log(router.options);
+    console.log(router.options.routes);
   }
   mounted(): void {
     this.firstName = "1";
