@@ -9,8 +9,8 @@
 
 <script lang="ts">
 import { Options, Vue } from "vue-class-component";
+import { getCurrentInstance } from "vue";
 import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
-import { getCurrentInstance, ref } from "vue";
 
 @Options({
   components: {
@@ -19,16 +19,14 @@ import { getCurrentInstance, ref } from "vue";
 })
 export default class Home extends Vue {
   created(): void {
-    console.log(this, "-----1-------");
-    const root = ref();
-    console.error(root);
+    console.log(this, "-----1-数据初始化,dom未渲染------");
   }
   mounted(): void {
-    console.log(this, "-----2-------");
+    console.log(this, "-----2-dom渲染------");
     this.hello();
   }
   hello(): string {
-    // 全局globalProperties变量
+    // 获取全局globalProperties变量
     const internalInstance = getCurrentInstance();
     const config = internalInstance?.appContext.config.globalProperties;
     console.log(config?.$Test(), "------========", config);

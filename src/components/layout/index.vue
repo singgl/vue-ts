@@ -47,6 +47,9 @@ export default class Container extends Vue {}
   text-align: center;
   line-height: 160px;
 }
+.el-container {
+  height: 100%;
+}
 
 body > .el-container {
   margin-bottom: 40px;

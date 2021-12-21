@@ -4,21 +4,22 @@ import Layout from "@/components/layout/index.vue";
 const routes: Array<RouteRecordRaw> = [
   {
     path: "/",
-    name: "index",
-    meta: { title: "", icon: "" },
-    redirect: "/",
+    name: "home",
+    meta: { title: "首页", icon: "", affix: true },
+    redirect: "/home",
     component: Layout,
     children: [
       {
-        path: "/",
-        name: "Home",
-        component: () =>
-          import(/* webpackChunkName: "about" */ "../views/Home.vue"),
+        path: "home",
+        name: "home",
         meta: { title: "首页", icon: "", affix: true },
+        component: () =>
+          import(/* webpackChunkName: "home" */ "../views/Home.vue"),
       },
       {
         path: "/about",
-        name: "About",
+        name: "about",
+        meta: { title: "关于", icon: "", affix: true },
         component: () =>
           import(/* webpackChunkName: "about" */ "../views/About.vue"),
       },
