@@ -6,5 +6,11 @@ import store from "./store";
 import ElementPlus from "element-plus";
 import "element-plus/dist/index.css";
 import "./style/index.scss";
-
-createApp(App).use(store).use(router).use(ElementPlus).mount("#app");
+const app = createApp(App);
+const test = () => {
+  console.log("测试");
+  return "测试数据";
+};
+app.config.globalProperties.$Test = test;
+console.log(app, "main.ts");
+app.use(store).use(router).use(ElementPlus).mount("#app");
