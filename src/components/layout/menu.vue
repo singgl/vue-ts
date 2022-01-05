@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2021-12-24 15:51:37
+ * @LastEditTime: 2022-01-05 15:21:37
 -->
 <template>
   <el-aside width="250px">
@@ -17,12 +17,7 @@
       @open="handleOpen"
       @close="handleClose"
     >
-      <item
-        v-for="(route, index) in routerList"
-        :key="index"
-        :item="route"
-        :base-path="route.path"
-      />
+      <item :router="routerList" />
     </el-menu>
   </el-aside>
 </template>
@@ -32,7 +27,6 @@ import logo from "./logo.vue";
 import item from "./item.vue";
 import router from "@/router";
 import { useRouter } from "vue-router";
-// import { PropType } from "vue";
 @Options({
   components: {
     logo,
@@ -42,17 +36,16 @@ import { useRouter } from "vue-router";
 export default class Aside extends Vue {
   firstName!: string;
   lastName!: string;
-  // 初始化数据 data可以声明成类属性形式
-  activeName = "";
+  // 初始化数据 data函数可以声明成类属性形式
   isCollapse = false;
   name = "测试123";
+  activeName = "";
   routerList = [];
-  // routerList = [] as PropType<RouteRecordRaw[]>;
   // computed属性可以声明成类方法形式
   get fullName(): string {
     return this.firstName + this.lastName;
   }
-  // 生命周期钩子声明  保留名称
+  // 生命周期钩子声明
   created(): void {
     // 获取当前路由
     const route = useRouter();
@@ -62,6 +55,7 @@ export default class Aside extends Vue {
       route?.currentRoute?.value.name
     );
     this.activeName = route.currentRoute.value.name as string;
+    console.info(this.activeName, "nows");
     const routes = router.options.routes[0].children;
     console.log(routes, "router------------");
     this.routerList = routes as [];

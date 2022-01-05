@@ -35,7 +35,7 @@
           Please check that the URL you entered is correct, or click the button
           below to return to the homepage.
         </div>
-        <a href="" class="bullshit__return-home">Back to home</a>
+        <a href="/" class="bullshit__return-home">Back to home</a>
       </div>
     </div>
   </div>
@@ -222,7 +222,7 @@ export default class Errors extends Vue {
       background: #1482f0;
       border-radius: 100px;
       text-align: center;
-      color: #ffffff;
+      color: #ffffff !important;
       opacity: 0;
       font-size: 14px;
       line-height: 36px;

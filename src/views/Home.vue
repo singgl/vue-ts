@@ -1,7 +1,12 @@
+<!--
+ * @Description: main
+ * @Autor: juest
+ * @Date: 2021-12-20 10:37:54
+ * @LastEditors: juest
+ * @LastEditTime: 2022-01-05 13:51:54
+-->
 <template>
   <div class="home" ref="root">
-    <!-- <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link> -->
     <span>{{ $Test() }}</span>
     <HelloWorld msg="Welcome to Your Vue.js + TypeScript App" />
   </div>

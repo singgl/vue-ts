@@ -35,6 +35,15 @@ ul {
   height: 100px;
 }
 ::-webkit-scrollbar-thumb {
+  // background-color: #a1a3a9;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.scrollbarStyle::-webkit-scrollbar {
+  width: 10px;
+  height: 100px;
+}
+.scrollbarStyle::-webkit-scrollbar-thumb {
   background-color: #a1a3a9;
   border-radius: 5px;
 }

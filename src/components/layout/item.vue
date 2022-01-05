@@ -1,7 +1,14 @@
+<!--
+ * @Description: 菜单
+ * @Autor: juest
+ * @Date: 2021-12-21 11:21:42
+ * @LastEditors: juest
+ * @LastEditTime: 2022-01-05 14:32:07
+-->
 <template>
-  <div v-if="!item.meta.hidden">
-    <template>
-      <el-menu-item :index="item.name">
+  <div>
+    <template v-for="(item, index) in router" :key="index">
+      <el-menu-item v-if="!item.meta.hidden" :index="item.name">
         <template #title>
           {{ item.meta.title }}
         </template>
@@ -11,30 +18,19 @@
 </template>
 
 <script lang="ts">
-import { PropType } from "vue";
 import { Vue, Options } from "vue-class-component";
-import { RouteRecordRaw } from "vue-router";
-// export interface comProps {
-//   path: string;
-//   name: string;
-//   meta: { title: string; icon: string; affix: boolean; hidden: boolean };
-//   component: "";
-// }
 @Options({
   props: {
-    item: {
-      // type: Object as unknown as comProps,
-      type: Array as PropType<RouteRecordRaw[]>,
-      require: true,
-    },
-    basePath: {
-      type: String,
-      default: "",
+    router: {
+      type: Array,
     },
   },
 })
-export default class HelloWorld extends Vue {
-  basePath!: string;
+export default class Item extends Vue {
+  router: any;
+  created(): void {
+    console.log(this.router);
+  }
   // onlyOneChild: any = null;
   // hasOneShowingChild(children = [], item: object | null): boolean {
   //   console.log(children, item);
