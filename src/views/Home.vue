@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-05 13:51:54
+ * @LastEditTime: 2022-01-06 14:49:14
 -->
 <template>
   <div class="home" ref="root">
@@ -23,11 +23,14 @@ import HelloWorld from "@/components/HelloWorld.vue"; // @ is an alias to /src
   },
 })
 export default class Home extends Vue {
+  // name: "index";
   created(): void {
-    console.log(this, "-----1-数据初始化,dom未渲染------");
+    console.log(this, "-----created------");
+  }
+  onActivated(): void {
+    console.log("123");
   }
   mounted(): void {
-    console.log(this, "-----2-dom渲染------");
     this.hello();
   }
   hello(): string {

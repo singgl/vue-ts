@@ -18,20 +18,6 @@ module.exports = {
           ? "hidden-source-map"
           : "eval-source-map",
       module: {
-        // rules: [
-        //   {
-        //     test: /\.ts|\.tsx$/,
-        //     use: [
-        //       'babel-loader',
-        //       {
-        //         loader: 'ts-loader',
-        //         options: {
-        //           appendTsSuffixTo: [/.vue$/],
-        //         }
-        //       }
-        //     ],
-        //   }
-        // ],
         rules: [
           {
             test: /\.tsx?$/,

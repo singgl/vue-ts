@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-05 15:21:37
+ * @LastEditTime: 2022-01-06 11:26:07
 -->
 <template>
   <el-aside width="250px">
@@ -23,7 +23,7 @@
 </template>
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import logo from "./logo.vue";
+import logo from "../logo.vue";
 import item from "./item.vue";
 import router from "@/router";
 import { useRouter } from "vue-router";
@@ -49,17 +49,14 @@ export default class Aside extends Vue {
   created(): void {
     // 获取当前路由
     const route = useRouter();
-    console.log(
-      router.options.routes[0].children,
-      "99999999999999",
-      route?.currentRoute?.value.name
-    );
+    // console.log(
+    //   router.options.routes[0].children,
+    //   "99999999999999",
+    //   route?.currentRoute?.value.name
+    // );
     this.activeName = route.currentRoute.value.name as string;
-    console.info(this.activeName, "nows");
     const routes = router.options.routes[0].children;
-    console.log(routes, "router------------");
     this.routerList = routes as [];
-    console.log(this.routerList, "-------llll");
   }
   mounted(): void {
     this.firstName = "1";

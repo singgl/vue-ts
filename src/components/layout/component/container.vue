@@ -1,7 +1,9 @@
 <template>
-  <el-main @mouseenter="tableMouseenter" @mouseleave="tableMouseleave">
-    <router-view></router-view>
-  </el-main>
+  <keep-alive>
+    <el-main @mouseenter="tableMouseenter" @mouseleave="tableMouseleave">
+      <router-view></router-view>
+    </el-main>
+  </keep-alive>
 </template>
 <script lang="ts">
 import { Vue } from "vue-class-component";

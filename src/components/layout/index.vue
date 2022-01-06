@@ -11,10 +11,10 @@
 
 <script lang="ts">
 import { Vue, Options } from "vue-class-component";
-import Menu from "./menu.vue";
-import Header from "./header.vue";
-import Main from "./container.vue";
-import Footer from "./footer.vue";
+import Menu from "./component/asides/menu.vue";
+import Header from "./component/header.vue";
+import Main from "./component/container.vue";
+import Footer from "./component/footer.vue";
 
 @Options({
   components: {
