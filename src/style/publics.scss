@@ -32,16 +32,19 @@ ul {
 
 ::-webkit-scrollbar {
   width: 10px;
-  height: 100px;
+  height: 50px;
 }
 ::-webkit-scrollbar-thumb {
   // background-color: #a1a3a9;
   background-color: transparent;
   border-radius: 5px;
 }
+.el-aside::-webkit-scrollbar-thumb {
+  background-color: #e3e5eb;
+}
 .scrollbarStyle::-webkit-scrollbar {
   width: 10px;
-  height: 100px;
+  height: 50px;
 }
 .scrollbarStyle::-webkit-scrollbar-thumb {
   background-color: #a1a3a9;

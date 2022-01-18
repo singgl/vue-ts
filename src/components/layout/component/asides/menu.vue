@@ -3,22 +3,29 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-06 11:26:07
+ * @LastEditTime: 2022-01-13 15:38:49
 -->
 <template>
   <el-aside width="250px">
     <logo />
-    <el-menu
-      class="el-menu-vertical-demo"
-      :default-active="activeName"
-      :router="true"
-      :unique-opened="true"
-      :collapse="isCollapse"
-      @open="handleOpen"
-      @close="handleClose"
-    >
-      <item :router="routerList" />
-    </el-menu>
+    <el-scrollbar>
+      <el-menu
+        class="el-menu-vertical-demo"
+        :default-active="activeMenu"
+        :router="true"
+        :unique-opened="true"
+        :collapse="isCollapse"
+        @open="handleOpen"
+        @close="handleClose"
+      >
+        <item
+          v-for="route in routerList"
+          :key="route.path"
+          :item="route"
+          :base-path="route.path"
+        />
+      </el-menu>
+    </el-scrollbar>
   </el-aside>
 </template>
 <script lang="ts">
@@ -39,22 +46,32 @@ export default class Aside extends Vue {
   // 初始化数据 data函数可以声明成类属性形式
   isCollapse = false;
   name = "测试123";
-  activeName = "";
+  // activeName = "";
   routerList = [];
   // computed属性可以声明成类方法形式
   get fullName(): string {
     return this.firstName + this.lastName;
   }
+  get activeMenu(): string {
+    const route = useRouter();
+    const { meta, path } = route?.currentRoute?.value;
+    console.error(meta, "------------", path);
+    if (meta.activeMenu) {
+      return meta.activeMenu as string;
+    }
+    return path;
+  }
   // 生命周期钩子声明
   created(): void {
     // 获取当前路由
-    const route = useRouter();
+    // const route = useRouter();
     // console.log(
     //   router.options.routes[0].children,
     //   "99999999999999",
+    //   route,
     //   route?.currentRoute?.value.name
     // );
-    this.activeName = route.currentRoute.value.name as string;
+    // this.activeName = route.currentRoute.value.path as string;
     const routes = router.options.routes[0].children;
     this.routerList = routes as [];
   }
@@ -65,7 +82,7 @@ export default class Aside extends Vue {
   }
   // method方法可以声明成类方法形式
   hello(): void {
-    console.log(this.fullName, this.name);
+    console.log(this.fullName, this.name, this.activeMenu);
   }
   handleOpen(key: string, keyPath: string): void {
     console.log(key, keyPath);
@@ -79,5 +96,15 @@ export default class Aside extends Vue {
 <style lang="scss" scoped>
 .el-aside {
   background-color: #fff !important;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1001;
+  overflow: hidden;
+}
+.el-scrollbar {
+  height: calc(100% - 60px) !important;
 }
 </style>

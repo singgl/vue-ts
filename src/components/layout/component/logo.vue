@@ -6,11 +6,16 @@
 
 <style lang="scss" scoped>
 .logo {
-  height: 60px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   padding-left: 26px;
+  position: relative;
+  width: 100%;
+  height: 60px;
+  // line-height: 60px;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
   img {
     width: 30px;
     height: 30px;

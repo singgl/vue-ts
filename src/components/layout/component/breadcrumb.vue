@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2022-01-06 14:48:11
  * @LastEditors: juest
- * @LastEditTime: 2022-01-06 17:35:46
+ * @LastEditTime: 2022-01-11 14:09:32
 -->
 <template>
   <el-breadcrumb separator="/">
@@ -24,13 +24,13 @@
 import { onMounted } from "vue";
 import { onBeforeRouteUpdate, useRouter } from "vue-router";
 interface Data {
-  [key: string]: unknown;
+  [key: string]: any;
 }
 export default {
   name: "breadcrumb",
   data(): Data {
     return {
-      // activeName: "",
+      activeName: {},
       routerList: [],
     };
   },
@@ -42,19 +42,22 @@ export default {
     });
     onMounted(() => {
       const route = useRouter();
-      activeName = route.currentRoute.value.name as string;
-      console.log("onMounted");
+      // activeName = route.currentRoute.value.name as string;
+      console.log("onMounted", route);
     });
     return {
-      activeName,
+      // activeName,
     };
   },
-  mounted(): void {
+  created(): void {
     const route = useRouter();
-    // this.activeName = route.currentRoute.value.name as string;
-    const routes = route.options.routes[0].children;
-    this.routerList = routes as [];
-    console.log(this, this.routerList);
+    // this.activeName = route.currentRoute.value;
+    // const routes = route.options.routes[0].children;
+    // this.routerList = routes as [];
+    console.log(route);
+  },
+  mounted(): void {
+    console.log("mounted");
   },
 };
 </script>

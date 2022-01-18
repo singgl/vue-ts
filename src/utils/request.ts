@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from "axios";
-import { ElMessageBox, ElMessage } from "element-plus";
-import { getToken, getStorageToken } from "./auth.js";
-import MD5 from "crypto-js/md5";
+// import { ElMessageBox, ElMessage } from "element-plus";
+// import { getToken, getStorageToken } from "./index.js";
+// import MD5 from "crypto-js/md5";
 
 const baseURL =
   process.env.VUE_APP_ENV === "mock"
@@ -14,7 +14,7 @@ const service = axios.create({
   timeout: 30000, // request timeout
   headers: {
     "Content-Type": "application/json; charset=utf-8",
-    spathe: getStorageToken("serveChange") || "",
+    // spathe: getStorageToken("serveChange") || "",
   },
 });
 
