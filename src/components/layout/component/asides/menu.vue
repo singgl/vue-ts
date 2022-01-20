@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-13 15:38:49
+ * @LastEditTime: 2022-01-20 14:25:37
 -->
 <template>
   <el-aside width="250px">
@@ -53,9 +53,10 @@ export default class Aside extends Vue {
     return this.firstName + this.lastName;
   }
   get activeMenu(): string {
+    // 获取当前路由
     const route = useRouter();
     const { meta, path } = route?.currentRoute?.value;
-    console.error(meta, "------------", path);
+    // console.error(meta, "------------", path);
     if (meta.activeMenu) {
       return meta.activeMenu as string;
     }
@@ -65,13 +66,7 @@ export default class Aside extends Vue {
   created(): void {
     // 获取当前路由
     // const route = useRouter();
-    // console.log(
-    //   router.options.routes[0].children,
-    //   "99999999999999",
-    //   route,
-    //   route?.currentRoute?.value.name
-    // );
-    // this.activeName = route.currentRoute.value.path as string;
+    // this.activeMenu = route.currentRoute.value.path as string;
     const routes = router.options.routes[0].children;
     this.routerList = routes as [];
   }
@@ -96,12 +91,13 @@ export default class Aside extends Vue {
 <style lang="scss" scoped>
 .el-aside {
   background-color: #fff !important;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  z-index: 1001;
+  border-right: 1px solid #e9eff2;
+  // height: 100%;
+  // position: fixed;
+  // top: 0;
+  // bottom: 0;
+  // left: 0;
+  // z-index: 1001;
   overflow: hidden;
 }
 .el-scrollbar {

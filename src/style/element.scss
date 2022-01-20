@@ -1,3 +1,4 @@
+// 菜单
 .el-menu-item.is-active {
   background-color: #dcebff !important;
   border-right: 2px solid #1386ff;
@@ -5,4 +6,9 @@
 
 .el-sub-menu.is-active>.el-sub-menu__title {
   color: var(--el-menu-active-color);
+}
+
+// 面包屑
+.el-breadcrumb {
+  font-size: 16px;
 }

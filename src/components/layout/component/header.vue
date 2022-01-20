@@ -23,6 +23,9 @@ export default {
 <style lang="scss" scoped>
 .header {
   display: flex;
+  background-color: #fff !important;
+  border-bottom: 1px solid #e9eff2;
+  box-sizing: border-box;
   /deep/ .el-breadcrumb {
     line-height: 60px;
   }

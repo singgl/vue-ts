@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-21 11:21:42
  * @LastEditors: juest
- * @LastEditTime: 2022-01-18 17:42:59
+ * @LastEditTime: 2022-01-19 16:38:52
 -->
 <template>
   <!-- 一级菜单是否show -->
@@ -56,28 +56,15 @@ export default class Item extends Vue {
   router: any;
   onlyOneChild: routeType = {};
   basePath: any;
-  created(): void {
-    console.log(this.router);
-  }
   hasOneShowingChild(item: routeType): boolean {
     const data = JSON.parse(JSON.stringify(item));
     if (!data.children) {
-      // this.onlyOneChild = data;
-      // console.error(this.onlyOneChild);
       return false;
     } else {
-      this.onlyOneChild = data;
-      console.error(this.onlyOneChild);
       return true;
     }
   }
   resolvePath(routePath: string): string {
-    console.log(this.basePath, "---------============-----------");
-    // console.log(
-    //   path.resolve(this.basePath, routePath),
-    //   "--------",
-    //   path.resolve(routePath, this.basePath)
-    // );
     return path.resolve(this.basePath, routePath);
   }
 }

@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-18 17:38:31
+ * @LastEditTime: 2022-01-19 11:28:48
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
 import Layout from "@/components/layout/index.vue";
@@ -17,7 +17,7 @@ const jest = [
       title: "测试1",
       icon: "",
       affix: true,
-      activeMenu: "/about1/about2",
+      activeMenu: "/jest/jest-index",
       hidden: true,
     },
     component: () =>
@@ -33,7 +33,7 @@ const jest1 = [
       title: "测试3",
       icon: "",
       affix: true,
-      activeMenu: "/about1/about3/about4",
+      activeMenu: "/jest/jutty/jutty-index",
       hidden: true,
     },
     component: () =>
