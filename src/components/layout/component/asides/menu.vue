@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-20 14:25:37
+ * @LastEditTime: 2022-01-21 15:51:48
 -->
 <template>
   <el-aside width="250px">
@@ -92,13 +92,10 @@ export default class Aside extends Vue {
 .el-aside {
   background-color: #fff !important;
   border-right: 1px solid #e9eff2;
-  // height: 100%;
-  // position: fixed;
-  // top: 0;
-  // bottom: 0;
-  // left: 0;
-  // z-index: 1001;
   overflow: hidden;
+}
+.el-menu-vertical-demo {
+  border-right: 0;
 }
 .el-scrollbar {
   height: calc(100% - 60px) !important;
