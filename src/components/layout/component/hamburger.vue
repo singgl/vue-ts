@@ -17,18 +17,28 @@
 </template>
 
 <script lang="ts">
+import { SetupContext } from "vue";
+interface obj {
+  [key: string]: any;
+}
 export default {
   name: "Hamburger",
+  emits: ["toggleClick"],
   props: {
     isActive: {
       type: Boolean,
-      default: true,
+      default: false,
     },
   },
-  methods: {
-    toggleClick(): void {
-      this.$emit("toggleClick");
-    },
+  setup(props: obj, context: SetupContext): obj {
+    console.log(props, "----hamburger", context);
+    const { emit } = context;
+    const toggleClick = (): void => {
+      emit("toggleClick");
+    };
+    return {
+      toggleClick,
+    };
   },
 };
 </script>
@@ -40,9 +50,10 @@ export default {
   fill: #666976;
   width: 20px;
   height: 20px;
+  transform: rotate(180deg);
 }
 
 .hamburger.is-active {
-  transform: rotate(180deg);
+  transform: rotate(0deg);
 }
 </style>

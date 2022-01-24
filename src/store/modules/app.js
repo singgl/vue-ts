@@ -5,13 +5,18 @@ import { defineStore } from "pinia";
 export const appStore = defineStore("app", {
   state: () => {
     return {
-      Open: true,
+      Open: false,
     };
+  },
+  getters: {
+    getOpen: (state) => {
+      return state.Open;
+    },
   },
   actions: {
     setOpen() {
       this.Open = !this.Open;
-      console.log("哈哈啊", this.Open);
+      console.log("app", this.Open);
     },
   },
 });

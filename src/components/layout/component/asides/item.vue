@@ -3,23 +3,19 @@
  * @Autor: juest
  * @Date: 2021-12-21 11:21:42
  * @LastEditors: juest
- * @LastEditTime: 2022-01-19 16:38:52
+ * @LastEditTime: 2022-01-24 17:25:32
 -->
 <template>
   <!-- 一级菜单是否show -->
   <div v-if="item.meta.hidden">
     <template v-if="!hasOneShowingChild(item)">
       <el-menu-item v-if="item.meta.hidden" :index="resolvePath(item.path)">
-        <template #title
-          >{{ item.meta.title }}-{{ resolvePath(item.path) }}</template
-        >
+        <template #title>{{ item.meta.title }}</template>
       </el-menu-item>
     </template>
     <template v-else>
       <el-sub-menu :index="resolvePath(item.path)">
-        <template #title
-          >{{ item.meta.title }}-{{ resolvePath(item.path) }}</template
-        >
+        <template #title>{{ item.meta.title }}</template>
         <item
           v-for="child in item.children"
           :key="child.path"
@@ -40,9 +36,6 @@ interface routeType {
 }
 @Options({
   props: {
-    router: {
-      type: Array,
-    },
     basePath: {
       type: String,
       default: "",
@@ -53,7 +46,6 @@ interface routeType {
   },
 })
 export default class Item extends Vue {
-  router: any;
   onlyOneChild: routeType = {};
   basePath: any;
   hasOneShowingChild(item: routeType): boolean {

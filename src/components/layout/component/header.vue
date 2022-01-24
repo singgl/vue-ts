@@ -29,12 +29,11 @@ export default {
   setup(): obj {
     const appStores = appStore();
     let data = reactive({
-      isActive: true,
+      isActive: false,
     });
     watch(
       () => appStores.Open,
-      (to, path) => {
-        console.log(to, path);
+      (to) => {
         data.isActive = to as boolean;
       },
       {
@@ -42,7 +41,7 @@ export default {
       }
     );
     function toggleSideBar() {
-      console.log("哈哈1", appStores.Open);
+      console.log("header", appStores.Open);
       appStores.setOpen();
     }
     return {

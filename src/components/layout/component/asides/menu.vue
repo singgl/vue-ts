@@ -3,10 +3,10 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-21 15:51:48
+ * @LastEditTime: 2022-01-24 17:54:59
 -->
 <template>
-  <el-aside width="250px">
+  <el-aside :class="[isCollapse ? 'HideAside' : 'OpenAside']">
     <logo />
     <el-scrollbar>
       <el-menu
@@ -34,6 +34,7 @@ import logo from "../logo.vue";
 import item from "./item.vue";
 import router from "@/router";
 import { useRouter } from "vue-router";
+import { appStore } from "@/store/modules/app";
 @Options({
   components: {
     logo,
@@ -43,12 +44,15 @@ import { useRouter } from "vue-router";
 export default class Aside extends Vue {
   firstName!: string;
   lastName!: string;
-  // 初始化数据 data函数可以声明成类属性形式
-  isCollapse = false;
+  // 1.初始化数据 data函数可以声明成类属性形式
   name = "测试123";
-  // activeName = "";
   routerList = [];
-  // computed属性可以声明成类方法形式
+  appStores = appStore();
+  // 2.computed计算属性可以声明成类方法形式
+  get isCollapse(): boolean {
+    console.log("menu", this.appStores.Open);
+    return this.appStores.Open;
+  }
   get fullName(): string {
     return this.firstName + this.lastName;
   }
@@ -75,7 +79,7 @@ export default class Aside extends Vue {
     this.lastName = "2";
     this.hello();
   }
-  // method方法可以声明成类方法形式
+  // 3.method方法可以声明成类方法形式
   hello(): void {
     console.log(this.fullName, this.name, this.activeMenu);
   }
@@ -93,6 +97,12 @@ export default class Aside extends Vue {
   background-color: #fff !important;
   border-right: 1px solid #e9eff2;
   overflow: hidden;
+}
+.OpenAside {
+  width: 240px !important;
+}
+.HideAside {
+  width: 65px !important;
 }
 .el-menu-vertical-demo {
   border-right: 0;
