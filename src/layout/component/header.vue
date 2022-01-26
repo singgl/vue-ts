@@ -12,9 +12,9 @@
 </template>
 
 <script lang="ts">
-import hamburger from "@/components/layout/component/hamburger.vue";
-import breadcrumb from "@/components/layout/component/breadcrumb.vue";
-import settings from "@/components/layout/component/settings.vue";
+import hamburger from "@/layout/component/hamburger.vue";
+import breadcrumb from "@/layout/component/breadcrumb.vue";
+import settings from "@/layout/component/settings.vue";
 import { appStore } from "@/store/modules/app.js";
 import { reactive, watch } from "vue";
 interface obj {

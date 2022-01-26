@@ -3,11 +3,11 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-19 11:28:48
+ * @LastEditTime: 2022-01-25 17:01:49
  */
 import { createRouter, createWebHashHistory, RouteRecordRaw } from "vue-router";
-import Layout from "@/components/layout/index.vue";
-import levelLayout from "@/components/layout/levelLayout.vue";
+import Layout from "@/layout/index.vue";
+import levelLayout from "@/layout/levelLayout.vue";
 
 const jest = [
   {
@@ -96,16 +96,6 @@ const routes: Array<RouteRecordRaw> = [
     path: "/:pathMatch(.*)*",
     component: () => import("@/views/error/404.vue"),
   },
-  // {
-  //   path: "/redirect",
-  //   component: Layout,
-  //   children: [
-  //     {
-  //       path: "/redirect/:pathMatch(.*)*",
-  //       component: () => import("@/views/redirect/index.vue"),
-  //     },
-  //   ],
-  // },
 ];
 
 const router = createRouter({

@@ -1,0 +1,25 @@
+#app .el-menu-item {
+  width: 100%;
+}
+
+#app .el-menu-item span {
+  flex: 1;
+  text-align: left;
+}
+
+#app .HideAside .el-menu .el-menu-item span {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
+}
+
+#app .HideAside .el-menu .el-sub-menu .el-sub-menu__title span,
+#app .HideAside .el-menu .el-sub-menu .el-sub-menu__title .el-icon {
+  height: 0;
+  width: 0;
+  overflow: hidden;
+  visibility: hidden;
+  display: inline-block;
+}

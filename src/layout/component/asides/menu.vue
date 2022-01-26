@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2021-12-20 10:37:54
  * @LastEditors: juest
- * @LastEditTime: 2022-01-24 17:54:59
+ * @LastEditTime: 2022-01-26 10:28:15
 -->
 <template>
   <el-aside :class="[isCollapse ? 'HideAside' : 'OpenAside']">
@@ -97,6 +97,7 @@ export default class Aside extends Vue {
   background-color: #fff !important;
   border-right: 1px solid #e9eff2;
   overflow: hidden;
+  transition: width 0.3s;
 }
 .OpenAside {
   width: 240px !important;
@@ -106,6 +107,10 @@ export default class Aside extends Vue {
 }
 .el-menu-vertical-demo {
   border-right: 0;
+  width: 100% !important;
+  .el-menu-item.is-active {
+    transition: border-color 0.3s, background-color 0.3s;
+  }
 }
 .el-scrollbar {
   height: calc(100% - 60px) !important;

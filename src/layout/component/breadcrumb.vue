@@ -3,7 +3,7 @@
  * @Autor: juest
  * @Date: 2022-01-06 14:48:11
  * @LastEditors: juest
- * @LastEditTime: 2022-01-20 16:46:20
+ * @LastEditTime: 2022-01-25 17:16:35
 -->
 <template>
   <el-breadcrumb separator="/">
@@ -37,7 +37,6 @@ export default {
       activeName: "",
       levelList: [] as RouteLocationMatched[],
     });
-    // let levelList: RouteLocationMatched[] = [];
     const route = useRouter();
     onBeforeRouteUpdate((to) => {
       console.log(to, "------------------bac");
